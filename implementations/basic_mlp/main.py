@@ -10,7 +10,7 @@ class BasicMLP():
             self.activation_function = activation_function
 
         def forward(self, inputs: List[Tensor]) -> Tensor:
-            return self.activation_function.activate(Tensor(sum([inputs[i] * Tensor(self.weights[i]) for i in range(len(inputs))], Tensor(0))) + Tensor(self.bias))
+            return self.activation_function.activate(sum([inputs[i] * self.weights[i] for i in range(len(inputs))], Tensor(0)) + self.bias)
 
     class Layer():
         def __init__(self, input_dim: int, output_dim: int, activation_function: ActivationFunction) -> None:
