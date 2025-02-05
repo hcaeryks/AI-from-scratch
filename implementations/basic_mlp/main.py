@@ -37,3 +37,9 @@ class BasicMLP():
             output = layer.forward(inputs)
         return output
 
+    def train(self, inputs: List[Tensor], targets: List[Tensor], epochs: int, learning_rate: float) -> None:
+        for _ in range(epochs):
+            for i in range(len(inputs)):
+                outputs = self.forward(inputs[i])
+                loss = self.loss_function.loss(outputs, targets[i])
+                print(f"Loss: {loss}")

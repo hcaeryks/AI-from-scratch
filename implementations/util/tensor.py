@@ -2,7 +2,7 @@ from typing import List, Union
 import math
 
 class Tensor:
-    def __init__(self, data: Union[List[float], float], requires_grad: bool = False):
+    def __init__(self, data: Union[List[float], float], requires_grad: bool = False) -> None:
         if isinstance(data, Tensor):
             data = data.data
             # in case i mess up lol
